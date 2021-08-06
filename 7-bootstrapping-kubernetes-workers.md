@@ -304,4 +304,30 @@ worker1   Ready    <none>   22s   v1.21.0
 worker2   Ready    <none>   22s   v1.21.0
 ```
 
+## config kubectl for remote access
 
+### copy `admin.kubeconfig` to host:
+```
+scp master@master:admin.kubeconfig . 
+```
+### edit `admin.kubeconfig`
+
+replace `server: https://127.0.0.1:6443` to `server: https://192.168.186.130:6443`
+
+```
+mkdir .kube
+cp admin.kubeconfig .kube/config
+```
+
+### verify kubectl in host
+
+```
+kubectl get nodes -o wide
+```
+
+> output
+```
+NAME      STATUS   ROLES    AGE   VERSION   INTERNAL-IP       EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+worker1   Ready    <none>   23h   v1.21.0   192.168.186.131   <none>        Ubuntu 20.04.2 LTS   5.11.0-25-generic   containerd://1.4.4
+worker2   Ready    <none>   23h   v1.21.0   192.168.186.132   <none>        Ubuntu 20.04.2 LTS   5.11.0-25-generic   containerd://1.4.4
+```
