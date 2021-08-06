@@ -11,6 +11,7 @@ Download and install vmware fusion or VirtualBox, my host is windows platform, b
 |worker1|192.168.186.132|Ubuntu 20.04.2|8G|2|
 
 ## on all nodes
+
 #### disable firewall
 ```
 sudo ufw disable
@@ -19,6 +20,10 @@ sudo ufw disable
 ```
 sudo swapoff -a; 
 sudo sed -i '/swap/d' /etc/fstab
+```
+#### config ssh access
+```
+sudo apt install openssl-server
 ```
 
 ## Networking
