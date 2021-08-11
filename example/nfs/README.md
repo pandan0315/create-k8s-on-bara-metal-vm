@@ -14,4 +14,7 @@ nfs/nfs-client-provisioning/
 kubectl apply -f create-pvc-nfs.yaml
 ```
 
-### create test bubybox
+#### create test bubybox
+```
+kubectl apply -f test-pvc-busybox.yaml
+```
