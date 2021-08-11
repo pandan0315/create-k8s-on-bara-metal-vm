@@ -21,7 +21,7 @@ spec:
       serviceAccountName: nfs-client-provisioner
       containers:
         - name: nfs-client-provisioner
-          image: quay.io/external_storage/nfs-client-provisioner:latest
+          image: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.0 # change since orignal not capable for k8s vesion > 1.20
           volumeMounts:
             - name: nfs-client-root
               mountPath: /persistentvolumes
